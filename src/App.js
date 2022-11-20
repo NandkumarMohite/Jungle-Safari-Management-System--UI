@@ -32,6 +32,8 @@ import SelectcTimeslotComponent from './components/SelectTimeslotComponent';
 import AddToCartMain from './components/AddToCartMain';
 import Orders from './components/Orders';
 
+import NotFoundPageComponent from './components/NotFoundPageComponent';
+
 function App() {
 
 
@@ -53,6 +55,7 @@ function App() {
             <Route exact path="/PlanUser" element={<Planuser />} ></Route>
             <Route exact path="/welcomeuser" element={<WelcomeUserComponent />} ></Route>
             <Route exact path="/welcomeadmin" element={<WelcomeAdminComponent />} ></Route>
+            
  {/* --------------------------------------------------------------------------------------------------------------------------------------------- */}
             <Route exact path="/selecttimeslot" element={<SelectcTimeslotComponent />} ></Route>
 {/* --------------------------------------------------------------------------------------------------------------------------------------------- */}
@@ -72,10 +75,13 @@ function App() {
             <Route exact path="/addtocart" element={<AddToCartMain />} ></Route>
             <Route exact path="/orders" element={<Orders />} ></Route>
             <Route exact path="/ordersA" element={<OrdersAdmin />} ></Route>
+{/* -----------------------------------------------------------------------------------------------------------------------------------------------------             */}
+            <Route exact path="/pageNotFound" element={<NotFoundPageComponent/>} ></Route>
           </Routes>
           <FooterComponent />
         </div>
       </Router>
+      
     </div>
 
 

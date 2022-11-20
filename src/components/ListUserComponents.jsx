@@ -15,9 +15,18 @@ class ListUserComponents extends Component {
 
     }
     componentDidMount() {
-        UserService.getUser().then((res) => {
-            this.setState({ user: res.data });
-        });
+        const user = JSON.parse(localStorage.getItem("user"));
+        if(user.userType=="Admin"){
+           
+            UserService.getUser().then((res) => {
+                this.setState({ user: res.data });
+            });
+        }else{
+            
+          
+            alert("You Don't have Authority To perfome this Operation Contact Admin")
+        }
+       
     }
 
 

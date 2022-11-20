@@ -111,10 +111,18 @@ class CreatePlanComponent extends Component {
         if(isValid){
         let plan = { packageId: this.state.packageId, packageName: this.state.packageName, description: this.state.description, packagefeeFore: this.state.packagefeeFore, packagefeeIndian: this.state.packagefeeIndian, numberOfPeople: this.state.numberOfPeople };
         console.log('plan => ' + JSON.stringify(plan));
-        alert("Plan added succesfully");
-        PlanService.createPlan(plan).then(Response => {
-            this.setState(initialState);
-        });
+        
+        const user = JSON.parse(localStorage.getItem("user"));
+        if(user.userType=="Admin"){
+            alert("Plan added succesfully");
+            PlanService.createPlan(plan).then(Response => {
+                this.setState(initialState);
+            });
+           
+        }else{
+            alert("You Don't have Authority To perfome this Operation Contact Admin")
+        }
+       
     }
     }
     changePackageNameHandler = (event) => {

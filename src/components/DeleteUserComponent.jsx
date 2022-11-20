@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import UserService from "../services/UserService";
 import axios from "axios";
 
+
 function DeleteUserComponent() {
+  const navigate = useNavigate();
   const [userId, setUserId] = useState("");
   const [user, setUser] = useState([]);
   const [srNo, setsrNo] = useState(null);
@@ -16,7 +18,18 @@ function DeleteUserComponent() {
   const [userType, setuserType] = useState("");
 
   useEffect(() => {
-    getUser();
+   
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user.userType=="Admin"){
+       
+        console.log(user.userType)
+        getUser();
+       
+    }else{
+        
+      
+        navigate("/pageNotFound")
+    }
   }, []);
 
   function getUser() {

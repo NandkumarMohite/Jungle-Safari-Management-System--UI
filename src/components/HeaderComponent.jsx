@@ -46,13 +46,14 @@ const HeaderComponent = () => {
               style={{ height: "40px", width: "40px" }}
               alt="this is "
             />
-            <Link
-              to="/"
+            <a
+             
               className="navbar-brand"
               style={{ marginLeft: "10px" }}
+              onClick={() => selector()}
             >
               Jungle Safari
-            </Link>
+            </a>
             <div class="nav-links">
               <ul>
                 <li>

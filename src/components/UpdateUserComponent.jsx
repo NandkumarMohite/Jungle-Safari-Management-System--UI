@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 //import { useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import UserService from '../services/UserService';
 
 
 
 function UpdateUserComponent() {
+  const navigate = useNavigate();
   const [user, setUser] = useState([])
   const [srNo, setsrNo] = useState(null);
   const [firstName, setfirstName] = useState('');
@@ -16,7 +18,18 @@ function UpdateUserComponent() {
   const [userType, setuserType] = useState('');
 
   useEffect(() => {
-    getUser();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user.userType=="Admin"){
+       
+        console.log(user.userType)
+        getUser();
+       
+    }else{
+        
+      
+        navigate("/pageNotFound")
+    }
+   
   }, [])
 
 

@@ -1,26 +1,69 @@
-import React, { Component } from "react";
-import FeedbackService from "../services/FeedbackService";
-import { Link } from "react-router-dom";
+
+import React, { Component, useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 import packages from "./pics/packages.jpg";
 import addplan from "./pics/Addpackage.jpg";
 import users from "./pics/users.jpg";
 import career from "./pics/career.jpg";
-class WelcomeComponent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      feedback: [],
-    };
+
+export default function WelcomeAdminComponent() {
+  const navigate = useNavigate();
+
+  const [id, setId] = useState("")
+  const [feedback, setfeedback] = useState([])
+  const [userName, setuserName] = useState('');
+  const [yourMassage, setyourMassage] = useState('');
+  const [planYouAssigned, setplanYouAssigned] = useState('');
+ 
+ 
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user.userType=="Admin"){
+       
+        console.log(user.userType)
+        getFeedback();
+       
+    }else{
+        
+      
+        navigate("/pageNotFound")
+    }
+
+   
+  }, [])
+
+
+  function getFeedback() {
+
+    fetch("http://localhost:8888/displayfeedback").then((result) => {
+      result.json().then((Response) => {
+        console.log(Response)
+
+        setfeedback(Response);
+        setId(Response[0].id);
+        setuserName(Response[0].userName);    
+        setyourMassage(Response[0].yourMassage);
+        setplanYouAssigned(Response[0].planYouAssigned);
+      
+
+      })
+    })
+
+
+  }
+   
+
+  function login() {
+    
+   
   }
 
-  componentDidMount() {
-    FeedbackService.getFeedback().then((res) => {
-      this.setState({ feedback: res.data });
-    });
-  }
-  render() {
-    return (
-      <>
+  /*------------------------------------------------------------------------*/
+
+  return (
+    <>
         <section class="header1">
           <div className="container">
             <div className="row">
@@ -78,7 +121,8 @@ class WelcomeComponent extends Component {
               <div class="feedback-cal">
                 
                 <div>
-                  {this.state.feedback.map((feedback) => (
+                  { feedback.map(
+                    feedback => 
                     <tr key={feedback.id}>
                       <h4>{feedback.yourMassage} </h4>
                       <p>Package :- {feedback.planYouAssigned}</p>
@@ -93,7 +137,7 @@ class WelcomeComponent extends Component {
                       <br></br>
                       
                     </tr>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -107,8 +151,6 @@ class WelcomeComponent extends Component {
             </Link>
           </div>
         </section>
-      </>
-    );
-  }
+        </>
+  );
 }
-export default WelcomeComponent;
