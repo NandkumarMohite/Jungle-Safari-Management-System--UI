@@ -6,6 +6,8 @@ const FooterComponent = () => {
 
   return (
 
+    
+
     <div>
       <div className='p1'>
         <footer class="text-center text-blue" >
