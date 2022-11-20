@@ -7,6 +7,7 @@ const Home = () => {
 
     return (
         <>
+        
             <div className='p1'>
                 <div id="contact">
                     <div class="layer2">

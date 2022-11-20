@@ -12,6 +12,7 @@ const FooterComponent = () => {
 
           <div class="container p-4 pb-0">
 
+
             <section class="">
               <p class="d-flex justify-content-center align-items-center">
                 <span class="me-3">Register for free</span>

@@ -13,6 +13,7 @@ function DeletePlanComponent() {
   const [packagefeeIndian, setpackagefeeIndian] = useState('');
   const [numberOfPeople, setnumberOfPeople] = useState('');
 
+  
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if(user==null){

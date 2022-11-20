@@ -18,6 +18,7 @@ class WelcomeComponent extends Component {
     });
   }
   render() {
+    
     return (
       <>
         <section className="header1">

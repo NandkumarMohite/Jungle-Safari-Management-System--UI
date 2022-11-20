@@ -47,6 +47,7 @@ class ListPlan extends Component {
                               <div className="pricing-name">
                               Maximum<span className="main-color"> Number Of </span>Peoples = {plan.numberOfPeople}
                               </div>
+                              
                               <div className="pricing-price">
                                 For In<span className="main-color" style={{fontSize:"25px"}}>di</span>an = {plan.packagefeeIndian}<br></br>
                                 For Fore<span className="main-color" style={{fontSize:"25px"}}>i</span>gner = {plan.packagefeeFore}

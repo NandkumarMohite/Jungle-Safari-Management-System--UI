@@ -119,6 +119,7 @@ class CreatePlanComponent extends Component {
                 this.setState(initialState);
             });
            
+            
         }else{
             alert("You Don't have Authority To perfome this Operation Contact Admin")
         }

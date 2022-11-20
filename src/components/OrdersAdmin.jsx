@@ -5,23 +5,19 @@ class OrdersAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
       robot: [],
-      pkgvalue: null,
-      GSTValue: null,
-      // date: date,
-      //  finalvalue:GSTValue +this.state.pkgvalue
-      //    pkgvalue :(this.state.robot.packagefeeIndian*this.state.robot.howManyPeoples),
-      // // let
-      // GSTValue:(this.state.robot.packagefeeIndian*this.state.robot.howManyPeoples*(0.2)),
-      //  finalvalue :(GSTValue + pkgvalue)
+
+      pkgvalue: null,    
+      GSTValue: null,    
+      
     };
     // const finalvalue = ((this.state.robot.packagefeeIndian + (Plan.packagefeeIndian / 10))*robot.howManyPeoples)
     let pkgvalue =
       this.state.robot.packagefeeIndian * this.state.robot.howManyPeoples;
     
 
-  //     var today = new Date(),
-  // date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
 
     let GSTValue =
       this.state.robot.packagefeeIndian * this.state.robot.howManyPeoples * 0.2;
@@ -44,7 +40,7 @@ class OrdersAdmin extends Component {
       //     localStorage.setItem("Robot", JSON.stringify(response.data))
       //     console.log(response)
     });
-  }else{
+  }else{   
     alert("You Don't have Authority To perfome this Operation Contact Admin")
 }
   }

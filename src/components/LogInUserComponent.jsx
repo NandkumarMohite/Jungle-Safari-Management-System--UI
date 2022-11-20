@@ -40,7 +40,7 @@ export default function LogInUserComponent() {
   function emailIdValidation(e) {
     let item = e.target.value;
     const regex = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
-    if (regex.test(item)) {
+    if (regex.test(item)) {   
       setEmailIdErr(false);
     } else if (!regex.test(emailId) && emailId !== "") {
       setEmailIdErr(true);

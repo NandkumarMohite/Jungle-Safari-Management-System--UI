@@ -9,7 +9,7 @@ class Planuser extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      plan: []
+      plan: []   
 
     }
   }

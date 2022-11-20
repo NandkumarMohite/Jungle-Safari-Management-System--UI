@@ -11,6 +11,7 @@ const initialState = {
   dateOfBirth: "",
   city: "",
   gender: "",
+  
   nationality: "",
   userType: "user",
 
