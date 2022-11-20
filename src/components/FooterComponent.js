@@ -5,9 +5,6 @@ const FooterComponent = () => {
   const navigate = useNavigate();
 
   return (
-
-    
-
     <div>
       <div className='p1'>
         <footer class="text-center text-blue" >
