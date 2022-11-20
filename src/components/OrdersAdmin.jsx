@@ -40,8 +40,7 @@ class OrdersAdmin extends Component {
       //     localStorage.setItem("Robot", JSON.stringify(response.data))
       //     console.log(response)
     });
-  }else{
-    
+  }else{   
     alert("You Don't have Authority To perfome this Operation Contact Admin")
 }
   }

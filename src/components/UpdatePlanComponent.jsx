@@ -1,10 +1,12 @@
 import React, { Component, useEffect, useState } from 'react'
 //import { useNavigate } from "react-router-dom"
 import PlanService from '../services/PlanService';
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 
 function UpdatePlanComponent() {
+  const navigate = useNavigate();
   const [packageId, setpackageId] = useState("")
   const [plan, setPlan] = useState([])
   const [packageName, setpackageName] = useState('');
@@ -14,7 +16,22 @@ function UpdatePlanComponent() {
   const [numberOfPeople, setnumberOfPeople] = useState('');
 
   useEffect(() => {
-    getPlan();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user==null){
+      navigate("/pageNotFound");
+      window.location.reload(true);
+    }
+    if(user.userType=="Admin"){
+       
+        console.log(user.userType)
+        getPlan();
+       
+    }else{
+        
+      
+        navigate("/pageNotFound")
+    }
+    
   }, [])
 
   

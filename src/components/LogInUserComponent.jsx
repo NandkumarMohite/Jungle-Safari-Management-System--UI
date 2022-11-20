@@ -1,6 +1,6 @@
 
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -15,6 +15,15 @@ export default function LogInUserComponent() {
   const [passwordErr, setPasswordErr] = useState(false);
 
   //passwordhandler
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user!=null){
+      navigate("/pageNotFound");
+      window.location.reload(true);
+    } 
+    
+  }, [])
+
   function passwordHandler(e) {
     let item = e.target.value;
     if (item.length < 3) {
@@ -42,6 +51,7 @@ export default function LogInUserComponent() {
   }
 
   function login() {
+
     let user = {
       emailId: emailId,
       password: password,

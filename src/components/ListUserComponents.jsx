@@ -16,7 +16,7 @@ class ListUserComponents extends Component {
     }
     componentDidMount() {
         const user = JSON.parse(localStorage.getItem("user"));
-        if(user.userType=="Admin"){
+        if(user!=null){
            
             UserService.getUser().then((res) => {
                 this.setState({ user: res.data });
