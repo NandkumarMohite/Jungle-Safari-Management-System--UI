@@ -57,6 +57,7 @@ function AddToCartMain() {
                           <td width={90}>
                             <div className="cart-product-imitation"></div>
                           </td>
+                          
                           <td className="desc">
                             <h3>
                               <a href="#" className="text-navy">

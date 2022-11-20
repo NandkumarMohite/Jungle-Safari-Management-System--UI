@@ -13,7 +13,7 @@ class OrderComponent extends Component {
       robot: []
 
     }
-  }
+  }    
 
  
 

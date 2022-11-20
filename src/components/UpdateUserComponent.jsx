@@ -17,6 +17,7 @@ function UpdateUserComponent() {
   const [dateOfBirth, setdateOfBirth] = useState('');
   const [userType, setuserType] = useState('');
 
+  
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     if(user.userType=="Admin"){

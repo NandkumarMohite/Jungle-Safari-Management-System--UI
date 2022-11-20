@@ -14,6 +14,7 @@ const HeaderComponent = () => {
     alert("Signing off Successfully..!");
     localStorage.clear();
 
+    
     navigate("/");
   }
   function Booking() {

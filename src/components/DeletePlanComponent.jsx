@@ -12,6 +12,7 @@ function DeletePlanComponent() {
   const [packagefeeIndian, setpackagefeeIndian] = useState('');
   const [numberOfPeople, setnumberOfPeople] = useState('');
 
+  
   useEffect(() => {
     getPlan();
   }, [])

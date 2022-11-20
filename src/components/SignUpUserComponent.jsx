@@ -101,6 +101,7 @@ class SignUpUserComponent extends Component {
     const isValid = this.validate();
     if (isValid) {
       let user = {
+        
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         emailId: this.state.emailId,

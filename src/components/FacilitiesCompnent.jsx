@@ -9,6 +9,7 @@ import Training from "./pics/Training.jpg";
 const Home = () => {
   const navigate = useNavigate();
 
+  
   return (
     <>
       <div className="p1">

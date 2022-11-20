@@ -86,7 +86,7 @@ class SelectTimeslotComponent extends Component {
       PlanService.createTimeSlot(ttimeslot).then((Response) => {
         this.setState(initialState);
         alert("Plan added succesfully");
-      });
+      });    
 
       return axios
         .get(`http://localhost:8888/selectPlan2/${user.srNo}`, user.srNo)
