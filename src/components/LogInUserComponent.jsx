@@ -59,7 +59,7 @@ export default function LogInUserComponent() {
           navigate("/welcomeadmin");
         } else {
           alert("You don't have any account, Please signUp");
-          //navigate("/signUp");
+          navigate("/signUp");
         }
       })
       .catch((error) => {

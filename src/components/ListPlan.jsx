@@ -10,6 +10,15 @@ class ListPlan extends Component {
     };
   }
 
+
+  getPlanByID(id){
+   if(id==1){
+   
+   }
+        
+
+    }
+
   componentDidMount() {
     PlanService.getPlan().then((res) => {
       this.setState({ plan: res.data });
@@ -17,61 +26,55 @@ class ListPlan extends Component {
   }
   render() {
     return (
-      <div className="planlist">
-        <div className="p1">
-          <h2
-            className="text-center"
-            style={{
-              color: "white",
-              backgroundColor: "transparent",
-              width: "15%",
-              textAlign: "center",
-              marginLeft: "42.5%",
-            }}
-          >
-            <strong>
-              <div style={{ border: "2px solid black" , color: "black" }}>Package List</div>
-            </strong>
-          </h2>
+      <div className='section' style={{marginTop:"-80px"}}>
+      <div className='planlist'>
+        
+  
+        <div className='container'>
+          <div className='pricing'>
+            <div className="pricing-header">
+              Jung<span className="main-color">l</span>e Packages
+            </div>
+            <div className="pricing-list">
+              <div className='row'>
+                {
+                  this.state.plan.map(
+                    plan =>
+                      <tr key={plan.packageId}>
+                        <div className="col-4 col-mb-12 col-sm-12">
+                          <div className="pricing-box">
+                            <div className="pricing-box-header">
+                              <div className="pricing-name">
+                              Maximum<span className="main-color"> Number Of </span>Peoples = {plan.numberOfPeople}
+                              </div>
+                              <div className="pricing-price">
+                                For In<span className="main-color" style={{fontSize:"25px"}}>di</span>an = {plan.packagefeeIndian}<br></br>
+                                For Fore<span className="main-color" style={{fontSize:"25px"}}>i</span>gner = {plan.packagefeeFore}
+                              </div>
+                            </div>
+                            <div className="pricing-box-content">
+                              <p style={{fontSize:"50px"}}>{plan.packageName}</p>
+                              <p>{plan.description}</p>
+                            </div>
+                            <div className="pricing-box-action">
+                              
+                             
+                          <a className="btn btn-hover" href="/LogIn"><span style={{color:"white"}}>Book Now</span></a>
+                       
+                  
+                              {/* <a onClick={() => this.getPlanByID(plan.packageId)} >addTocart</a> */}
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                  )
+                }
 
-          <div className="row">
-            <table
-              className="table table-sm table-dark"
-              style={{ width: "90%", marginLeft: "70px" }}
-            >
-              <thead>
-                <tr>
-                  <th>packageId</th>
-                  <th>packageName</th>
-                  <th>description</th>
-                  <th>packagefeeFore</th>
-                  <th>packagefeeIndian</th>
-                  <th>numberOfPeople</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.plan.map((plan) => (
-                  <tr key={plan.packageId}>
-                    <td>{plan.packageId}</td>
-                    <td>{plan.packageName}</td>
-                    <td>{plan.description}</td>
-                    <td>{plan.packagefeeFore}</td>
-                    <td>{plan.packagefeeIndian}</td>
-                    <td>{plan.numberOfPeople}</td>
-                    <td>
-                      {
-                        <Link to="/LogIn">
-                          <button className="btn btn-success">Select</button>
-                        </Link>
-                      }
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }
