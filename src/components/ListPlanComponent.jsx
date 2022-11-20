@@ -27,11 +27,17 @@ class ListPlanComponent extends Component {
     
 
   componentDidMount() {
-    PlanService.getPlan().then((res) => {
+   
 
-
-      this.setState({ plan: res.data });
-    });
+    const user = JSON.parse(localStorage.getItem("user"));
+  
+    if(user!=null){ 
+      PlanService.getPlan().then((res) => {
+        this.setState({ plan: res.data });
+      });
+    }else{
+        alert("You Don't have Authority To perfome this Operation Contact Admin")
+    }
   }
   render() {
     return (

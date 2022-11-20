@@ -4,6 +4,7 @@ import UserService from '../services/UserService';
 import axios from "axios";
 
 function DeletePlanComponent() {
+  const navigate = useNavigate();
   const [packageId, setpackageId] = useState("")
   const [plan, setPlan] = useState([])
   const [packageName, setpackageName] = useState('');
@@ -13,7 +14,23 @@ function DeletePlanComponent() {
   const [numberOfPeople, setnumberOfPeople] = useState('');
 
   useEffect(() => {
-    getPlan();
+    const user = JSON.parse(localStorage.getItem("user"));
+    if(user==null){
+      navigate("/pageNotFound");
+      window.location.reload(true);
+    }
+    if(user.userType=="Admin"){
+       
+        console.log(user.userType)
+        getPlan();
+       
+    }else{
+        
+      
+        navigate("/pageNotFound")
+    }
+    
+    
   }, [])
 
   // packageId: '1',

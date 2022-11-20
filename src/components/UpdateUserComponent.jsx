@@ -19,6 +19,10 @@ function UpdateUserComponent() {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
+    if(user==null){
+      navigate("/pageNotFound");
+      window.location.reload(true);
+    }
     if(user.userType=="Admin"){
        
         console.log(user.userType)

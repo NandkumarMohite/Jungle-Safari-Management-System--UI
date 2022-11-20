@@ -34,6 +34,7 @@ class OrdersAdmin extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
     console.log(user);
    // const id = user.srNo;
+   if(user!=null){
     return axios.get(`http://localhost:8888/diplayBookings`).then((result) => {
       this.setState({ robot: result.data });
       this.setState({ GSTValue: result.data.packagefeeIndian });
@@ -43,6 +44,9 @@ class OrdersAdmin extends Component {
       //     localStorage.setItem("Robot", JSON.stringify(response.data))
       //     console.log(response)
     });
+  }else{
+    alert("You Don't have Authority To perfome this Operation Contact Admin")
+}
   }
 
   render() {
